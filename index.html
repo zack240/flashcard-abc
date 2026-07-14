@@ -166,11 +166,14 @@
   }
   .tabs {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 8px;
     background: rgba(255,255,255,0.08);
     padding: 6px;
-    border-radius: 999px;
+    border-radius: 20px;
     margin-bottom: 36px;
+    max-width: 90vw;
   }
   .tab-btn {
     border: none;
@@ -218,6 +221,12 @@
 <div class="tabs">
   <button class="tab-btn active" data-collection="camping" onclick="switchCollection('camping')">Camping Furniture</button>
   <button class="tab-btn" data-collection="storage" onclick="switchCollection('storage')">Storage</button>
+  <button class="tab-btn" data-collection="accessories" onclick="switchCollection('accessories')">Accessories</button>
+  <button class="tab-btn" data-collection="fan" onclick="switchCollection('fan')">Fan</button>
+  <button class="tab-btn" data-collection="sleeping-gear" onclick="switchCollection('sleeping-gear')">Sleeping Gear</button>
+  <button class="tab-btn" data-collection="lighting" onclick="switchCollection('lighting')">Lighting</button>
+  <button class="tab-btn" data-collection="cookware" onclick="switchCollection('cookware')">Cookware</button>
+  <button class="tab-btn" data-collection="shelter" onclick="switchCollection('shelter')">Shelter</button>
 </div>
 
 <div class="collection" id="collection-camping">
@@ -295,6 +304,36 @@
 <p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
 </div>
 
+<div class="collection" id="collection-accessories" style="display:none;">
+<p class="category-label">Category: Accessories</p>
+<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="collection" id="collection-fan" style="display:none;">
+<p class="category-label">Category: Fan</p>
+<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="collection" id="collection-sleeping-gear" style="display:none;">
+<p class="category-label">Category: Sleeping Gear</p>
+<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="collection" id="collection-lighting" style="display:none;">
+<p class="category-label">Category: Lighting</p>
+<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="collection" id="collection-cookware" style="display:none;">
+<p class="category-label">Category: Cookware</p>
+<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="collection" id="collection-shelter" style="display:none;">
+<p class="category-label">Category: Shelter</p>
+<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+</div>
+
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">⬆️</button>
 
 <script>
@@ -310,10 +349,26 @@
   };
   const defaultBackground = 'linear-gradient(160deg, #1e1b4b, #0f172a)';
   const collectionBackgrounds = {
-    camping: palette.blue
+    camping: palette.blue,
+    storage: palette.yellow,
+    accessories: palette.gray,
+    fan: palette.magenta,
+    'sleeping-gear': palette.cyan,
+    lighting: palette.green,
+    cookware: palette.orange,
+    shelter: palette.red
   };
 
-  const collectionTotals = { camping: 8, storage: 0 };
+  const collectionTotals = {
+    camping: 8,
+    storage: 0,
+    accessories: 0,
+    fan: 0,
+    'sleeping-gear': 0,
+    lighting: 0,
+    cookware: 0,
+    shelter: 0
+  };
   let activeCollection = 'camping';
 
   function applyBackground(name) {
