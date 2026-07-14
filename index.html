@@ -119,6 +119,31 @@
     margin-top: 20px;
     text-align: center;
   }
+  .back-to-top {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 52px;
+    height: 52px;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .back-to-top.show {
+    display: flex;
+  }
+  .back-to-top:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+  }
 </style>
 </head>
 <body>
@@ -193,6 +218,8 @@
 
 <div class="done" id="doneMsg" style="display:none;">🎉 Bagus! Semua kad sudah flip. Refresh untuk main semula.</div>
 
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">⬆️</button>
+
 <script>
   const flipped = new Set();
   function flip(card) {
@@ -210,6 +237,11 @@
       document.getElementById('doneMsg').style.display = 'none';
     }
   }
+
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    backToTop.classList.toggle('show', window.scrollY > 300);
+  });
 </script>
 
 </body>
