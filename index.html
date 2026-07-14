@@ -164,31 +164,31 @@
     background: #4f46e5;
     transform: translateY(-2px);
   }
-  .tabs {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    background: rgba(255,255,255,0.08);
-    padding: 6px;
-    border-radius: 20px;
-    margin-bottom: 36px;
-    max-width: 90vw;
-  }
-  .tab-btn {
-    border: none;
-    background: transparent;
-    color: #c7d2fe;
-    padding: 10px 20px;
+  .collection-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 12px 40px 12px 20px;
     border-radius: 999px;
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    margin-bottom: 36px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'><path d='M5.5 7.5l4.5 4.5 4.5-4.5' stroke='white' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
   }
-  .tab-btn.active {
-    background: #6366f1;
-    color: #fff;
+  .collection-select option {
+    color: #1f2937;
+    background: #fff;
+  }
+  body.theme-light .collection-select {
+    background-color: rgba(0,0,0,0.08);
+    color: #1f2937;
+    border-color: rgba(0,0,0,0.2);
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='%231f2937'><path d='M5.5 7.5l4.5 4.5 4.5-4.5' stroke='%231f2937' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
   }
   .collection {
     display: flex;
@@ -220,12 +220,6 @@
   body.theme-light .empty-msg {
     color: rgba(31,41,55,0.75);
   }
-  body.theme-light .tabs {
-    background: rgba(0,0,0,0.08);
-  }
-  body.theme-light .tab-btn {
-    color: rgba(31,41,55,0.7);
-  }
   body.theme-light .progress {
     background: rgba(0,0,0,0.08);
     color: #1f2937;
@@ -239,16 +233,16 @@
 <h1>🧠 Flashcard Muscle Memory</h1>
 <p class="sub">Klik setiap kad untuk flip &amp; lihat jawapan, scroll ke bawah untuk kad seterusnya</p>
 
-<div class="tabs">
-  <button class="tab-btn active" data-collection="camping" onclick="switchCollection('camping')">Camping Furniture</button>
-  <button class="tab-btn" data-collection="storage" onclick="switchCollection('storage')">Storage</button>
-  <button class="tab-btn" data-collection="accessories" onclick="switchCollection('accessories')">Accessories</button>
-  <button class="tab-btn" data-collection="fan" onclick="switchCollection('fan')">Fan</button>
-  <button class="tab-btn" data-collection="sleeping-gear" onclick="switchCollection('sleeping-gear')">Sleeping Gear</button>
-  <button class="tab-btn" data-collection="lighting" onclick="switchCollection('lighting')">Lighting</button>
-  <button class="tab-btn" data-collection="cookware" onclick="switchCollection('cookware')">Cookware</button>
-  <button class="tab-btn" data-collection="shelter" onclick="switchCollection('shelter')">Shelter</button>
-</div>
+<select class="collection-select" id="collectionSelect" onchange="switchCollection(this.value)">
+  <option value="camping">Camping Furniture</option>
+  <option value="storage">Storage</option>
+  <option value="accessories">Accessories</option>
+  <option value="fan">Fan</option>
+  <option value="sleeping-gear">Sleeping Gear</option>
+  <option value="lighting">Lighting</option>
+  <option value="cookware">Cookware</option>
+  <option value="shelter">Shelter</option>
+</select>
 
 <div class="collection" id="collection-camping">
 <p class="category-label">Category: IGT Tables</p>
@@ -434,9 +428,7 @@
     document.querySelectorAll('.collection').forEach(el => {
       el.style.display = el.id === 'collection-' + name ? 'flex' : 'none';
     });
-    document.querySelectorAll('.tab-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.collection === name);
-    });
+    document.getElementById('collectionSelect').value = name;
     applyBackground(name);
     updateProgress();
     window.scrollTo({ top: 0, behavior: 'smooth' });
