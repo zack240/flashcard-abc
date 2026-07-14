@@ -36,6 +36,10 @@
     margin-bottom: 60px;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    transition: box-shadow 0.3s ease;
+  }
+  .card-scene.flip-mid {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
   .card-scene.photo {
     width: 300px;
@@ -514,6 +518,9 @@
   function flip(card) {
     card.classList.toggle('flipped');
     updateProgress();
+    const scene = card.closest('.card-scene');
+    scene.classList.add('flip-mid');
+    setTimeout(() => scene.classList.remove('flip-mid'), 600);
   }
 
   function switchCollection(name) {
