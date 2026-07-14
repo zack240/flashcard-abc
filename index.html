@@ -144,14 +144,64 @@
     background: #4f46e5;
     transform: translateY(-2px);
   }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    padding: 6px;
+    border-radius: 999px;
+    margin-bottom: 36px;
+  }
+  .tab-btn {
+    border: none;
+    background: transparent;
+    color: #c7d2fe;
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .tab-btn.active {
+    background: #6366f1;
+    color: #fff;
+  }
+  .collection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .category-label {
+    color: #a5b4fc;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .empty-msg {
+    color: rgba(255,255,255,0.7);
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+  }
 </style>
 </head>
 <body>
 
-<div class="progress">✅ <span id="flipCount">0</span>/8 flipped</div>
+<div class="progress" id="progressBadge">✅ <span id="flipCount">0</span>/<span id="flipTotal">8</span> flipped</div>
 
 <h1>🧠 Flashcard Muscle Memory</h1>
 <p class="sub">Klik setiap kad untuk flip &amp; lihat jawapan, scroll ke bawah untuk kad seterusnya</p>
+
+<div class="tabs">
+  <button class="tab-btn active" data-collection="camping" onclick="switchCollection('camping')">Camping Furniture</button>
+  <button class="tab-btn" data-collection="storage" onclick="switchCollection('storage')">Storage</button>
+</div>
+
+<div class="collection" id="collection-camping">
+<p class="category-label">Category: IGT Tables</p>
 
 <div class="card-scene photo">
   <div class="card" data-id="A" onclick="flip(this)">
@@ -216,27 +266,57 @@
   </div>
 </div>
 
-<div class="done" id="doneMsg" style="display:none;">🎉 Bagus! Semua kad sudah flip. Refresh untuk main semula.</div>
+<div class="done" style="display:none;">🎉 Bagus! Semua kad sudah flip. Refresh untuk main semula.</div>
+
+</div>
+
+<div class="collection" id="collection-storage" style="display:none;">
+<p class="category-label">Category: Folding Wagons</p>
+<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+</div>
 
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">⬆️</button>
 
 <script>
-  const flipped = new Set();
-  function flip(card) {
-    card.classList.toggle('flipped');
-    const id = card.getAttribute('data-id');
-    if (card.classList.contains('flipped')) {
-      flipped.add(id);
+  const collectionTotals = { camping: 8, storage: 0 };
+  let activeCollection = 'camping';
+
+  function updateProgress() {
+    const total = collectionTotals[activeCollection];
+    const collectionEl = document.getElementById('collection-' + activeCollection);
+    const flippedCount = collectionEl.querySelectorAll('.card.flipped').length;
+    const progressBadge = document.getElementById('progressBadge');
+    if (total === 0) {
+      progressBadge.style.display = 'none';
     } else {
-      flipped.delete(id);
+      progressBadge.style.display = 'block';
+      document.getElementById('flipCount').textContent = flippedCount;
+      document.getElementById('flipTotal').textContent = total;
     }
-    document.getElementById('flipCount').textContent = flipped.size;
-    if (flipped.size === 8) {
-      document.getElementById('doneMsg').style.display = 'block';
-    } else {
-      document.getElementById('doneMsg').style.display = 'none';
+    const doneEl = collectionEl.querySelector('.done');
+    if (doneEl) {
+      doneEl.style.display = (total > 0 && flippedCount === total) ? 'block' : 'none';
     }
   }
+
+  function flip(card) {
+    card.classList.toggle('flipped');
+    updateProgress();
+  }
+
+  function switchCollection(name) {
+    activeCollection = name;
+    document.querySelectorAll('.collection').forEach(el => {
+      el.style.display = el.id === 'collection-' + name ? 'flex' : 'none';
+    });
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.collection === name);
+    });
+    updateProgress();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  updateProgress();
 
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
