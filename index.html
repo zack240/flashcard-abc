@@ -33,6 +33,11 @@
     perspective: 1000px;
     margin-bottom: 60px;
   }
+  .card-scene.photo {
+    width: 300px;
+    height: auto;
+    aspect-ratio: 596 / 843;
+  }
   .card {
     width: 100%;
     height: 100%;
@@ -50,6 +55,7 @@
     height: 100%;
     backface-visibility: hidden;
     border-radius: 20px;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,7 +125,7 @@
 <h1>🧠 Flashcard Muscle Memory</h1>
 <p class="sub">Klik setiap kad untuk flip &amp; lihat jawapan, scroll ke bawah untuk kad seterusnya</p>
 
-<div class="card-scene">
+<div class="card-scene photo">
   <div class="card" data-id="A" onclick="flip(this)">
     <div class="face front"><img src="images/bd099-front.png" alt="BD099 front"></div>
     <div class="face back"><img src="images/bd099-back.png" alt="BD099 back"></div>
