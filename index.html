@@ -108,7 +108,7 @@
 </head>
 <body>
 
-<div class="progress">✅ <span id="flipCount">0</span>/3 flipped</div>
+<div class="progress">✅ <span id="flipCount">0</span>/8 flipped</div>
 
 <h1>🧠 Flashcard Muscle Memory</h1>
 <p class="sub">Klik setiap kad untuk flip &amp; lihat jawapan, scroll ke bawah untuk kad seterusnya</p>
@@ -135,6 +135,46 @@
     <div class="face back">🎂<br>Cake</div>
   </div>
 </div>
+<div class="scroll-arrow">⬇️</div>
+
+<div class="card-scene">
+  <div class="card" data-id="D" onclick="flip(this)">
+    <div class="face front">D</div>
+    <div class="face back">🐶<br>Dog</div>
+  </div>
+</div>
+<div class="scroll-arrow">⬇️</div>
+
+<div class="card-scene">
+  <div class="card" data-id="E" onclick="flip(this)">
+    <div class="face front">E</div>
+    <div class="face back">🐘<br>Elephant</div>
+  </div>
+</div>
+<div class="scroll-arrow">⬇️</div>
+
+<div class="card-scene">
+  <div class="card" data-id="F" onclick="flip(this)">
+    <div class="face front">F</div>
+    <div class="face back">🐟<br>Fish</div>
+  </div>
+</div>
+<div class="scroll-arrow">⬇️</div>
+
+<div class="card-scene">
+  <div class="card" data-id="G" onclick="flip(this)">
+    <div class="face front">G</div>
+    <div class="face back">🍇<br>Grapes</div>
+  </div>
+</div>
+<div class="scroll-arrow">⬇️</div>
+
+<div class="card-scene">
+  <div class="card" data-id="H" onclick="flip(this)">
+    <div class="face front">H</div>
+    <div class="face back">🏠<br>House</div>
+  </div>
+</div>
 
 <div class="done" id="doneMsg" style="display:none;">🎉 Bagus! Semua kad sudah flip. Refresh untuk main semula.</div>
 
@@ -149,7 +189,7 @@
       flipped.delete(id);
     }
     document.getElementById('flipCount').textContent = flipped.size;
-    if (flipped.size === 3) {
+    if (flipped.size === 8) {
       document.getElementById('doneMsg').style.display = 'block';
     } else {
       document.getElementById('doneMsg').style.display = 'none';
