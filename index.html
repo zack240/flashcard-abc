@@ -917,8 +917,55 @@
 </div>
 
 <div class="collection" id="collection-lighting" style="display:none;">
-<p class="category-label">Category: Lighting</p>
-<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+
+<div class="category-tabs">
+  <button class="cat-btn active" data-category="lantern" onclick="switchCategory('lantern')">Lantern</button>
+  <button class="cat-btn" data-category="lantern-with-mosquito-repellent" onclick="switchCategory('lantern-with-mosquito-repellent')">Lantern With Mosquito Repellent</button>
+  <button class="cat-btn" data-category="string-light" onclick="switchCategory('string-light')">String Light</button>
+  <button class="cat-btn" data-category="ground-lamp" onclick="switchCategory('ground-lamp')">Ground Lamp</button>
+  <button class="cat-btn" data-category="hanging-lamp" onclick="switchCategory('hanging-lamp')">Hanging Lamp</button>
+  <button class="cat-btn" data-category="warning-light" onclick="switchCategory('warning-light')">Warning Light</button>
+  <button class="cat-btn" data-category="gas-powerd-lamp" onclick="switchCategory('gas-powerd-lamp')">Gas Powerd Lamp</button>
+  <button class="cat-btn" data-category="hand-lamp" onclick="switchCategory('hand-lamp')">Hand Lamp</button>
+  <button class="cat-btn" data-category="head-lamp" onclick="switchCategory('head-lamp')">Head Lamp</button>
+</div>
+
+<div class="category-panel" id="category-lantern">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-lantern-with-mosquito-repellent" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-string-light" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-ground-lamp" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-hanging-lamp" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-warning-light" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-gas-powerd-lamp" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-hand-lamp" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-head-lamp" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
 </div>
 
 <div class="collection" id="collection-cookware" style="display:none;">
@@ -972,7 +1019,8 @@
     storage: ['folding-wagon', 'wagon-tabletop', 'cooler-boxes', 'folding-boxes', 'tactical-boxes', 'tactical-boxes-accessories', 'multifunction-bags', 'toiletery-bags', 'tote-bage', 'stove-bag', 'hiking-bag', 'pegs-bags', 'tissue-bags', 'water-bucket', 'rack', 'shelf', 'rack-accessories', 'basket'],
     accessories: ['pillow-case', 'floor-mats', 'door-mats', 'nap-mats', 'flags', 'tablecloths', 'sets-survival-tools', 'first-aid', 'carabiner', 'basic-hooks', 'magnetic-buckles', 'hammer', 'pegs', 'pegs-accessories', 'wind-rope-with-regulator', 'hanging-rope', 'rope-buckle', 'light-standing-pole', 'aluminum-pole', 'iron-pole', 'carbon-fiber-pole', 'portable-hanger', 'mosquito-coil', 'mini-table', 'rubbish-frame', 'pot-hanging-tripod', 'pole-cap', 'velco-strap', 'universal-tactical-screw', 'towel', 'clip', 'pump', 'gas-adapter', 'lamp-accessories', 'cutting-board', 'fireproof-cloth'],
     fan: ['stand-fan', 'clip-fan', 'hand-held-fan', 'neck-fan', 'hanging-fan', 'fan-accessories'],
-    'sleeping-gear': ['sleeping-bags', 'camping-cots', 'king-air-mattress', 'queen-air-mattress', 'single-air-mattress', 'pillows', 'blankets', 'hammock']
+    'sleeping-gear': ['sleeping-bags', 'camping-cots', 'king-air-mattress', 'queen-air-mattress', 'single-air-mattress', 'pillows', 'blankets', 'hammock'],
+    lighting: ['lantern', 'lantern-with-mosquito-repellent', 'string-light', 'ground-lamp', 'hanging-lamp', 'warning-light', 'gas-powerd-lamp', 'hand-lamp', 'head-lamp']
   };
   const categoryTotals = {
     camping: {
@@ -1072,6 +1120,17 @@
       'pillows': 0,
       'blankets': 0,
       'hammock': 0
+    },
+    lighting: {
+      'lantern': 0,
+      'lantern-with-mosquito-repellent': 0,
+      'string-light': 0,
+      'ground-lamp': 0,
+      'hanging-lamp': 0,
+      'warning-light': 0,
+      'gas-powerd-lamp': 0,
+      'hand-lamp': 0,
+      'head-lamp': 0
     }
   };
 
