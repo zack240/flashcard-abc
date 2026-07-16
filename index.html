@@ -1767,8 +1767,29 @@
     updateProgress();
   }
 
-  applyBackground(activeCollection);
-  updateProgress();
+  function applyDeepLink() {
+    const hash = decodeURIComponent(location.hash.replace('#', ''));
+    if (!hash) return false;
+    const [col, cat] = hash.split('/');
+    if (!col || !document.getElementById('collection-' + col)) return false;
+
+    switchCollection(col);
+    if (cat && categoryTotals[col] && cat in categoryTotals[col]) {
+      switchCategory(cat);
+    }
+
+    setTimeout(() => {
+      const panel = cat ? document.getElementById('category-' + cat) : document.getElementById('collection-' + col);
+      const lastScene = panel && panel.querySelector('.card-scene:last-of-type');
+      if (lastScene) lastScene.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 50);
+    return true;
+  }
+
+  if (!applyDeepLink()) {
+    applyBackground(activeCollection);
+    updateProgress();
+  }
 
   const backToTop = document.getElementById('backToTop');
   window.addEventListener('scroll', () => {
