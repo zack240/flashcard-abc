@@ -251,6 +251,36 @@
     text-transform: uppercase;
     margin-bottom: 24px;
   }
+  .category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 28px;
+    max-width: 90vw;
+  }
+  .cat-btn {
+    border: 1px solid rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.08);
+    color: inherit;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+  }
+  .cat-btn.active {
+    background: #fff;
+    color: #1f2937;
+    border-color: #fff;
+  }
+  .category-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
   .empty-msg {
     color: rgba(255,255,255,0.7);
     font-size: 16px;
@@ -278,6 +308,15 @@
     background: rgba(0,0,0,0.08);
     color: #1f2937;
   }
+  body.theme-light .cat-btn {
+    border-color: rgba(31,41,55,0.3);
+    background: rgba(0,0,0,0.06);
+  }
+  body.theme-light .cat-btn.active {
+    background: #1f2937;
+    color: #fff;
+    border-color: #1f2937;
+  }
 </style>
 </head>
 <body>
@@ -299,8 +338,35 @@
 </div>
 
 <div class="collection" id="collection-camping">
-<p class="category-label">Category: IGT Tables</p>
 
+<div class="category-tabs">
+  <button class="cat-btn" data-category="inflatable-sofa" onclick="switchCategory('inflatable-sofa')">Inflatable Sofa</button>
+  <button class="cat-btn active" data-category="igt-tables" onclick="switchCategory('igt-tables')">IGT Tables</button>
+  <button class="cat-btn" data-category="igt-tables-accessories" onclick="switchCategory('igt-tables-accessories')">IGT Tables Accessories</button>
+  <button class="cat-btn" data-category="kitchen-table" onclick="switchCategory('kitchen-table')">Kitchen Table</button>
+  <button class="cat-btn" data-category="egg-roll-table" onclick="switchCategory('egg-roll-table')">Egg Roll Table</button>
+  <button class="cat-btn" data-category="table-sets" onclick="switchCategory('table-sets')">Table Sets</button>
+  <button class="cat-btn" data-category="portable-light-weight-table" onclick="switchCategory('portable-light-weight-table')">Portable Light-Weight Table</button>
+  <button class="cat-btn" data-category="mesh-folding-table" onclick="switchCategory('mesh-folding-table')">Mesh Folding table</button>
+  <button class="cat-btn" data-category="steel-table" onclick="switchCategory('steel-table')">Steel table</button>
+  <button class="cat-btn" data-category="steel-table-board" onclick="switchCategory('steel-table-board')">Steel table Board</button>
+  <button class="cat-btn" data-category="tactical-table" onclick="switchCategory('tactical-table')">Tactical Table</button>
+  <button class="cat-btn" data-category="moon-chair" onclick="switchCategory('moon-chair')">Moon Chair</button>
+  <button class="cat-btn" data-category="basic-chair" onclick="switchCategory('basic-chair')">Basic Chair</button>
+  <button class="cat-btn" data-category="light-weight-chair" onclick="switchCategory('light-weight-chair')">Light-Weight Chair</button>
+  <button class="cat-btn" data-category="rocking-chair" onclick="switchCategory('rocking-chair')">Rocking Chair</button>
+  <button class="cat-btn" data-category="kermit-folding-chair" onclick="switchCategory('kermit-folding-chair')">Kermit Folding Chair</button>
+  <button class="cat-btn" data-category="double-folding-chair" onclick="switchCategory('double-folding-chair')">Double Folding Chair</button>
+  <button class="cat-btn" data-category="recliner-chair" onclick="switchCategory('recliner-chair')">Recliner Chair</button>
+  <button class="cat-btn" data-category="high-back-chair" onclick="switchCategory('high-back-chair')">High-Back Chair</button>
+  <button class="cat-btn" data-category="folding-stool" onclick="switchCategory('folding-stool')">Folding Stool</button>
+</div>
+
+<div class="category-panel" id="category-inflatable-sofa" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-igt-tables">
 <div class="card-scene photo">
   <div class="card" data-id="A" onclick="flip(this)">
     <div class="face front"><img src="images/bd099-front.png" alt="BD099 front"></div>
@@ -365,6 +431,79 @@
 </div>
 
 <div class="done" style="display:none;">🎉 Bagus! Semua kad sudah flip. Refresh untuk main semula.</div>
+</div>
+
+<div class="category-panel" id="category-igt-tables-accessories" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-kitchen-table" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-egg-roll-table" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-table-sets" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-portable-light-weight-table" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-mesh-folding-table" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-steel-table" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-steel-table-board" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-tactical-table" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-moon-chair" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-basic-chair" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-light-weight-chair" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-rocking-chair" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-kermit-folding-chair" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-double-folding-chair" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-recliner-chair" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-high-back-chair" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-folding-stool" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
 
 </div>
 
@@ -481,7 +620,37 @@
     cookware: 0,
     shelter: 0
   };
+
+  const collectionCategories = {
+    camping: ['inflatable-sofa', 'igt-tables', 'igt-tables-accessories', 'kitchen-table', 'egg-roll-table', 'table-sets', 'portable-light-weight-table', 'mesh-folding-table', 'steel-table', 'steel-table-board', 'tactical-table', 'moon-chair', 'basic-chair', 'light-weight-chair', 'rocking-chair', 'kermit-folding-chair', 'double-folding-chair', 'recliner-chair', 'high-back-chair', 'folding-stool']
+  };
+  const categoryTotals = {
+    camping: {
+      'inflatable-sofa': 0,
+      'igt-tables': 8,
+      'igt-tables-accessories': 0,
+      'kitchen-table': 0,
+      'egg-roll-table': 0,
+      'table-sets': 0,
+      'portable-light-weight-table': 0,
+      'mesh-folding-table': 0,
+      'steel-table': 0,
+      'steel-table-board': 0,
+      'tactical-table': 0,
+      'moon-chair': 0,
+      'basic-chair': 0,
+      'light-weight-chair': 0,
+      'rocking-chair': 0,
+      'kermit-folding-chair': 0,
+      'double-folding-chair': 0,
+      'recliner-chair': 0,
+      'high-back-chair': 0,
+      'folding-stool': 0
+    }
+  };
+
   let activeCollection = 'camping';
+  let activeCategory = 'igt-tables';
 
   function getBrightness(hex) {
     const r = parseInt(hex.slice(1, 3), 16);
@@ -498,9 +667,18 @@
   }
 
   function updateProgress() {
-    const total = collectionTotals[activeCollection];
-    const collectionEl = document.getElementById('collection-' + activeCollection);
-    const flippedCount = collectionEl.querySelectorAll('.card.flipped').length;
+    let total, flippedCount, doneEl;
+    if (activeCategory && categoryTotals[activeCollection]) {
+      total = categoryTotals[activeCollection][activeCategory];
+      const panelEl = document.getElementById('category-' + activeCategory);
+      flippedCount = panelEl.querySelectorAll('.card.flipped').length;
+      doneEl = panelEl.querySelector('.done');
+    } else {
+      total = collectionTotals[activeCollection];
+      const collectionEl = document.getElementById('collection-' + activeCollection);
+      flippedCount = collectionEl.querySelectorAll('.card.flipped').length;
+      doneEl = collectionEl.querySelector('.done');
+    }
     const progressBadge = document.getElementById('progressBadge');
     if (total === 0) {
       progressBadge.style.display = 'none';
@@ -509,7 +687,6 @@
       document.getElementById('flipCount').textContent = flippedCount;
       document.getElementById('flipTotal').textContent = total;
     }
-    const doneEl = collectionEl.querySelector('.done');
     if (doneEl) {
       doneEl.style.display = (total > 0 && flippedCount === total) ? 'block' : 'none';
     }
@@ -532,8 +709,25 @@
       btn.classList.toggle('active', btn.dataset.collection === name);
     });
     applyBackground(name);
-    updateProgress();
+    if (collectionCategories[name]) {
+      switchCategory(collectionCategories[name][0]);
+    } else {
+      activeCategory = null;
+      updateProgress();
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function switchCategory(catKey) {
+    activeCategory = catKey;
+    const collectionEl = document.getElementById('collection-' + activeCollection);
+    collectionEl.querySelectorAll('.category-panel').forEach(el => {
+      el.style.display = el.id === 'category-' + catKey ? 'flex' : 'none';
+    });
+    collectionEl.querySelectorAll('.cat-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.category === catKey);
+    });
+    updateProgress();
   }
 
   applyBackground(activeCollection);
