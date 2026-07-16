@@ -1800,7 +1800,8 @@
 
     setTimeout(() => {
       const panel = cat ? document.getElementById('category-' + cat) : document.getElementById('collection-' + col);
-      const lastScene = panel && panel.querySelector('.card-scene:last-of-type');
+      const scenes = panel && panel.querySelectorAll('.card-scene');
+      const lastScene = scenes && scenes[scenes.length - 1];
       if (lastScene) lastScene.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 50);
     return true;
