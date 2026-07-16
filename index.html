@@ -969,8 +969,75 @@
 </div>
 
 <div class="collection" id="collection-cookware" style="display:none;">
-<p class="category-label">Category: Cookware</p>
-<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+
+<div class="category-tabs">
+  <button class="cat-btn active" data-category="utensil" onclick="switchCategory('utensil')">Utensil</button>
+  <button class="cat-btn" data-category="multifunction-stove" onclick="switchCategory('multifunction-stove')">Multifunction Stove</button>
+  <button class="cat-btn" data-category="single-stove" onclick="switchCategory('single-stove')">Single Stove</button>
+  <button class="cat-btn" data-category="double-stove" onclick="switchCategory('double-stove')">Double Stove</button>
+  <button class="cat-btn" data-category="pot-sets" onclick="switchCategory('pot-sets')">Pot Sets</button>
+  <button class="cat-btn" data-category="single-pot" onclick="switchCategory('single-pot')">Single Pot</button>
+  <button class="cat-btn" data-category="single-cup" onclick="switchCategory('single-cup')">Single Cup</button>
+  <button class="cat-btn" data-category="cup-sets" onclick="switchCategory('cup-sets')">Cup Sets</button>
+  <button class="cat-btn" data-category="kettle" onclick="switchCategory('kettle')">Kettle</button>
+  <button class="cat-btn" data-category="grill" onclick="switchCategory('grill')">Grill</button>
+  <button class="cat-btn" data-category="seasoning-bottles" onclick="switchCategory('seasoning-bottles')">Seasoning Bottles</button>
+  <button class="cat-btn" data-category="wind-shield" onclick="switchCategory('wind-shield')">Wind Shield</button>
+  <button class="cat-btn" data-category="plate" onclick="switchCategory('plate')">Plate</button>
+</div>
+
+<div class="category-panel" id="category-utensil">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-multifunction-stove" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-single-stove" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-double-stove" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-pot-sets" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-single-pot" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-single-cup" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-cup-sets" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-kettle" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-grill" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-seasoning-bottles" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-wind-shield" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-plate" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
 </div>
 
 <div class="collection" id="collection-shelter" style="display:none;">
@@ -1020,7 +1087,8 @@
     accessories: ['pillow-case', 'floor-mats', 'door-mats', 'nap-mats', 'flags', 'tablecloths', 'sets-survival-tools', 'first-aid', 'carabiner', 'basic-hooks', 'magnetic-buckles', 'hammer', 'pegs', 'pegs-accessories', 'wind-rope-with-regulator', 'hanging-rope', 'rope-buckle', 'light-standing-pole', 'aluminum-pole', 'iron-pole', 'carbon-fiber-pole', 'portable-hanger', 'mosquito-coil', 'mini-table', 'rubbish-frame', 'pot-hanging-tripod', 'pole-cap', 'velco-strap', 'universal-tactical-screw', 'towel', 'clip', 'pump', 'gas-adapter', 'lamp-accessories', 'cutting-board', 'fireproof-cloth'],
     fan: ['stand-fan', 'clip-fan', 'hand-held-fan', 'neck-fan', 'hanging-fan', 'fan-accessories'],
     'sleeping-gear': ['sleeping-bags', 'camping-cots', 'king-air-mattress', 'queen-air-mattress', 'single-air-mattress', 'pillows', 'blankets', 'hammock'],
-    lighting: ['lantern', 'lantern-with-mosquito-repellent', 'string-light', 'ground-lamp', 'hanging-lamp', 'warning-light', 'gas-powerd-lamp', 'hand-lamp', 'head-lamp']
+    lighting: ['lantern', 'lantern-with-mosquito-repellent', 'string-light', 'ground-lamp', 'hanging-lamp', 'warning-light', 'gas-powerd-lamp', 'hand-lamp', 'head-lamp'],
+    cookware: ['utensil', 'multifunction-stove', 'single-stove', 'double-stove', 'pot-sets', 'single-pot', 'single-cup', 'cup-sets', 'kettle', 'grill', 'seasoning-bottles', 'wind-shield', 'plate']
   };
   const categoryTotals = {
     camping: {
@@ -1131,6 +1199,21 @@
       'gas-powerd-lamp': 0,
       'hand-lamp': 0,
       'head-lamp': 0
+    },
+    cookware: {
+      'utensil': 0,
+      'multifunction-stove': 0,
+      'single-stove': 0,
+      'double-stove': 0,
+      'pot-sets': 0,
+      'single-pot': 0,
+      'single-cup': 0,
+      'cup-sets': 0,
+      'kettle': 0,
+      'grill': 0,
+      'seasoning-bottles': 0,
+      'wind-shield': 0,
+      'plate': 0
     }
   };
 
