@@ -833,8 +833,40 @@
 </div>
 
 <div class="collection" id="collection-fan" style="display:none;">
-<p class="category-label">Category: Fan</p>
-<p class="empty-msg">🚧 Kad untuk koleksi ni akan ditambah tak lama lagi.</p>
+
+<div class="category-tabs">
+  <button class="cat-btn active" data-category="stand-fan" onclick="switchCategory('stand-fan')">Stand Fan</button>
+  <button class="cat-btn" data-category="clip-fan" onclick="switchCategory('clip-fan')">Clip Fan</button>
+  <button class="cat-btn" data-category="hand-held-fan" onclick="switchCategory('hand-held-fan')">Hand Held Fan</button>
+  <button class="cat-btn" data-category="neck-fan" onclick="switchCategory('neck-fan')">Neck Fan</button>
+  <button class="cat-btn" data-category="hanging-fan" onclick="switchCategory('hanging-fan')">Hanging Fan</button>
+  <button class="cat-btn" data-category="fan-accessories" onclick="switchCategory('fan-accessories')">Fan Accessories</button>
+</div>
+
+<div class="category-panel" id="category-stand-fan">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-clip-fan" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-hand-held-fan" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-neck-fan" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-hanging-fan" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-fan-accessories" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
 </div>
 
 <div class="collection" id="collection-sleeping-gear" style="display:none;">
@@ -896,7 +928,8 @@
   const collectionCategories = {
     camping: ['inflatable-sofa', 'igt-tables', 'igt-tables-accessories', 'kitchen-table', 'egg-roll-table', 'table-sets', 'portable-light-weight-table', 'mesh-folding-table', 'steel-table', 'steel-table-board', 'tactical-table', 'moon-chair', 'basic-chair', 'light-weight-chair', 'rocking-chair', 'kermit-folding-chair', 'double-folding-chair', 'recliner-chair', 'high-back-chair', 'folding-stool'],
     storage: ['folding-wagon', 'wagon-tabletop', 'cooler-boxes', 'folding-boxes', 'tactical-boxes', 'tactical-boxes-accessories', 'multifunction-bags', 'toiletery-bags', 'tote-bage', 'stove-bag', 'hiking-bag', 'pegs-bags', 'tissue-bags', 'water-bucket', 'rack', 'shelf', 'rack-accessories', 'basket'],
-    accessories: ['pillow-case', 'floor-mats', 'door-mats', 'nap-mats', 'flags', 'tablecloths', 'sets-survival-tools', 'first-aid', 'carabiner', 'basic-hooks', 'magnetic-buckles', 'hammer', 'pegs', 'pegs-accessories', 'wind-rope-with-regulator', 'hanging-rope', 'rope-buckle', 'light-standing-pole', 'aluminum-pole', 'iron-pole', 'carbon-fiber-pole', 'portable-hanger', 'mosquito-coil', 'mini-table', 'rubbish-frame', 'pot-hanging-tripod', 'pole-cap', 'velco-strap', 'universal-tactical-screw', 'towel', 'clip', 'pump', 'gas-adapter', 'lamp-accessories', 'cutting-board', 'fireproof-cloth']
+    accessories: ['pillow-case', 'floor-mats', 'door-mats', 'nap-mats', 'flags', 'tablecloths', 'sets-survival-tools', 'first-aid', 'carabiner', 'basic-hooks', 'magnetic-buckles', 'hammer', 'pegs', 'pegs-accessories', 'wind-rope-with-regulator', 'hanging-rope', 'rope-buckle', 'light-standing-pole', 'aluminum-pole', 'iron-pole', 'carbon-fiber-pole', 'portable-hanger', 'mosquito-coil', 'mini-table', 'rubbish-frame', 'pot-hanging-tripod', 'pole-cap', 'velco-strap', 'universal-tactical-screw', 'towel', 'clip', 'pump', 'gas-adapter', 'lamp-accessories', 'cutting-board', 'fireproof-cloth'],
+    fan: ['stand-fan', 'clip-fan', 'hand-held-fan', 'neck-fan', 'hanging-fan', 'fan-accessories']
   };
   const categoryTotals = {
     camping: {
@@ -978,6 +1011,14 @@
       'lamp-accessories': 0,
       'cutting-board': 0,
       'fireproof-cloth': 0
+    },
+    fan: {
+      'stand-fan': 0,
+      'clip-fan': 0,
+      'hand-held-fan': 0,
+      'neck-fan': 0,
+      'hanging-fan': 0,
+      'fan-accessories': 0
     }
   };
 
