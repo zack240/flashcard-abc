@@ -508,8 +508,29 @@
 </div>
 
 <div class="collection" id="collection-storage" style="display:none;">
-<p class="category-label">Category: Folding Wagons</p>
 
+<div class="category-tabs">
+  <button class="cat-btn active" data-category="folding-wagon" onclick="switchCategory('folding-wagon')">Folding Wagon</button>
+  <button class="cat-btn" data-category="wagon-tabletop" onclick="switchCategory('wagon-tabletop')">Wagon Tabletop</button>
+  <button class="cat-btn" data-category="cooler-boxes" onclick="switchCategory('cooler-boxes')">Cooler Boxes</button>
+  <button class="cat-btn" data-category="folding-boxes" onclick="switchCategory('folding-boxes')">Folding Boxes</button>
+  <button class="cat-btn" data-category="tactical-boxes" onclick="switchCategory('tactical-boxes')">Tactical Boxes</button>
+  <button class="cat-btn" data-category="tactical-boxes-accessories" onclick="switchCategory('tactical-boxes-accessories')">Tactical Boxes Accessories</button>
+  <button class="cat-btn" data-category="multifunction-bags" onclick="switchCategory('multifunction-bags')">Multifunction Bags</button>
+  <button class="cat-btn" data-category="toiletery-bags" onclick="switchCategory('toiletery-bags')">Toiletery Bags</button>
+  <button class="cat-btn" data-category="tote-bage" onclick="switchCategory('tote-bage')">Tote Bage</button>
+  <button class="cat-btn" data-category="stove-bag" onclick="switchCategory('stove-bag')">Stove Bag</button>
+  <button class="cat-btn" data-category="hiking-bag" onclick="switchCategory('hiking-bag')">Hiking Bag</button>
+  <button class="cat-btn" data-category="pegs-bags" onclick="switchCategory('pegs-bags')">Pegs Bags</button>
+  <button class="cat-btn" data-category="tissue-bags" onclick="switchCategory('tissue-bags')">Tissue Bags</button>
+  <button class="cat-btn" data-category="water-bucket" onclick="switchCategory('water-bucket')">Water Bucket</button>
+  <button class="cat-btn" data-category="rack" onclick="switchCategory('rack')">Rack</button>
+  <button class="cat-btn" data-category="shelf" onclick="switchCategory('shelf')">Shelf</button>
+  <button class="cat-btn" data-category="rack-accessories" onclick="switchCategory('rack-accessories')">Rack Accessories</button>
+  <button class="cat-btn" data-category="basket" onclick="switchCategory('basket')">Basket</button>
+</div>
+
+<div class="category-panel" id="category-folding-wagon">
 <div class="card-scene hybrid">
   <div class="card" data-id="xsaxsa" onclick="flip(this)">
     <div class="face front front-composed" style="background:#F5EE64">
@@ -552,6 +573,75 @@
 </div>
 
 <div class="done" style="display:none;">🎉 Bagus! Semua kad sudah flip. Refresh untuk main semula.</div>
+</div>
+
+<div class="category-panel" id="category-wagon-tabletop" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-cooler-boxes" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-folding-boxes" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-tactical-boxes" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-tactical-boxes-accessories" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-multifunction-bags" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-toiletery-bags" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-tote-bage" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-stove-bag" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-hiking-bag" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-pegs-bags" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-tissue-bags" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-water-bucket" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-rack" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-shelf" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-rack-accessories" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
+
+<div class="category-panel" id="category-basket" style="display:none;">
+<p class="empty-msg">🚧 Kad untuk kategori ni akan ditambah tak lama lagi.</p>
+</div>
 
 </div>
 
@@ -622,7 +712,8 @@
   };
 
   const collectionCategories = {
-    camping: ['inflatable-sofa', 'igt-tables', 'igt-tables-accessories', 'kitchen-table', 'egg-roll-table', 'table-sets', 'portable-light-weight-table', 'mesh-folding-table', 'steel-table', 'steel-table-board', 'tactical-table', 'moon-chair', 'basic-chair', 'light-weight-chair', 'rocking-chair', 'kermit-folding-chair', 'double-folding-chair', 'recliner-chair', 'high-back-chair', 'folding-stool']
+    camping: ['inflatable-sofa', 'igt-tables', 'igt-tables-accessories', 'kitchen-table', 'egg-roll-table', 'table-sets', 'portable-light-weight-table', 'mesh-folding-table', 'steel-table', 'steel-table-board', 'tactical-table', 'moon-chair', 'basic-chair', 'light-weight-chair', 'rocking-chair', 'kermit-folding-chair', 'double-folding-chair', 'recliner-chair', 'high-back-chair', 'folding-stool'],
+    storage: ['folding-wagon', 'wagon-tabletop', 'cooler-boxes', 'folding-boxes', 'tactical-boxes', 'tactical-boxes-accessories', 'multifunction-bags', 'toiletery-bags', 'tote-bage', 'stove-bag', 'hiking-bag', 'pegs-bags', 'tissue-bags', 'water-bucket', 'rack', 'shelf', 'rack-accessories', 'basket']
   };
   const categoryTotals = {
     camping: {
@@ -646,6 +737,26 @@
       'recliner-chair': 0,
       'high-back-chair': 0,
       'folding-stool': 0
+    },
+    storage: {
+      'folding-wagon': 2,
+      'wagon-tabletop': 0,
+      'cooler-boxes': 0,
+      'folding-boxes': 0,
+      'tactical-boxes': 0,
+      'tactical-boxes-accessories': 0,
+      'multifunction-bags': 0,
+      'toiletery-bags': 0,
+      'tote-bage': 0,
+      'stove-bag': 0,
+      'hiking-bag': 0,
+      'pegs-bags': 0,
+      'tissue-bags': 0,
+      'water-bucket': 0,
+      'rack': 0,
+      'shelf': 0,
+      'rack-accessories': 0,
+      'basket': 0
     }
   };
 
