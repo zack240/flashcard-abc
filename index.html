@@ -195,16 +195,21 @@
     background: #6366f1;
     color: #fff;
     border: none;
-    border-radius: 50%;
-    width: 52px;
+    border-radius: 26px;
     height: 52px;
-    font-size: 22px;
+    padding: 0 20px;
+    font-size: 15px;
+    font-weight: 600;
+    gap: 8px;
     cursor: pointer;
     box-shadow: 0 6px 18px rgba(0,0,0,0.4);
     display: none;
     align-items: center;
     justify-content: center;
     transition: background 0.2s, transform 0.2s;
+  }
+  .back-to-top .icon {
+    font-size: 20px;
   }
   .back-to-top.show {
     display: flex;
@@ -3137,7 +3142,7 @@
 
 </div>
 
-<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top">⬆️</button>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" aria-label="Back to top"><span class="icon">⬆️</span>Back to Top</button>
 
 <script>
   const palette = {
